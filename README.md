@@ -2,6 +2,8 @@
 
 A homepage builder demo for Apache Superset that allows full customization of the landing page through a drag & drop editor.
 
+![Superset Homepage Builder](public/superset-homepage-builder.png)
+
 ## Tech Stack
 
 - **React 19** - UI Framework
