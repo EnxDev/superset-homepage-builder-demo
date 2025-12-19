@@ -1801,6 +1801,14 @@ export default function HomepageBuilder() {
     setLayout({ header: [], main: [], sidebar: [] });
   };
 
+  const handleNewHomepage = () => {
+    const emptyLayout = { header: [], main: [], sidebar: [] };
+    setLayout(emptyLayout);
+    setSelectedHomepageId(null);
+    setIsEditing(true);
+    setSavedLayout(JSON.parse(JSON.stringify(emptyLayout)));
+  };
+
   // Saved homepages handlers
   const handleSaveAsHomepage = () => {
     if (!newHomepageName.trim()) {
@@ -1894,6 +1902,7 @@ export default function HomepageBuilder() {
           handleCancel={handleCancel}
           handleReset={handleReset}
           handleClear={handleClear}
+          handleNewHomepage={handleNewHomepage}
           savedHomepages={savedHomepages}
           selectedHomepageId={selectedHomepageId}
           showSaveModal={showSaveModal}
@@ -1903,7 +1912,6 @@ export default function HomepageBuilder() {
           handleSaveAsHomepage={handleSaveAsHomepage}
           handleLoadHomepage={handleLoadHomepage}
           handleDeleteHomepage={handleDeleteHomepage}
-          handleUpdateHomepage={handleUpdateHomepage}
         />
       </ConfigProvider>
     </DarkModeContext.Provider>
@@ -1920,9 +1928,9 @@ function HomepageBuilderContent({
   handleDragStart, handleDragEnd, handleDropZoneDragOver, handleDropZoneDragLeave,
   handleDropAtIndex, handleDrop, handleAddWidget, handleRemoveWidget,
   handleToggleCollapse, handleConfigSave, handleSave, handleCancel, handleReset, handleClear,
-  savedHomepages, selectedHomepageId, showSaveModal, setShowSaveModal,
+  handleNewHomepage, savedHomepages, selectedHomepageId, showSaveModal, setShowSaveModal,
   newHomepageName, setNewHomepageName, handleSaveAsHomepage, handleLoadHomepage,
-  handleDeleteHomepage, handleUpdateHomepage
+  handleDeleteHomepage
 }) {
   const { token } = useToken();
 
@@ -2035,16 +2043,14 @@ function HomepageBuilderContent({
               )}
             />
           )}
-          {selectedHomepageId && (
-            <Button
-              size="small"
-              type="text"
-              icon={<SaveOutlined />}
-              onClick={handleUpdateHomepage}
-              title="Update current homepage"
-              css={css`color: ${token.colorSuccess}; &:hover { color: ${token.colorSuccess}; background: rgba(89, 181, 120, 0.1); }`}
-            />
-          )}
+          <Button
+            size="small"
+            type="text"
+            icon={<PlusOutlined />}
+            onClick={handleNewHomepage}
+            title="Create new empty homepage"
+            css={css`color: ${token.colorPrimary}; &:hover { color: ${token.colorPrimary}; background: rgba(32, 167, 201, 0.1); }`}
+          />
           <Button
             size="small"
             icon={<FolderOpenOutlined />}
