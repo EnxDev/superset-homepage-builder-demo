@@ -1620,7 +1620,7 @@ export default function HomepageBuilder() {
   const [isDarkMode, setIsDarkMode] = useState(stored.preferences?.isDarkMode ?? true);
   const [activeDropZone, setActiveDropZone] = useState(null);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(stored.preferences?.sidebarCollapsed ?? false);
-  const [sidebarWidth, setSidebarWidth] = useState(stored.preferences?.sidebarWidth ?? 280);
+  const [sidebarWidth, setSidebarWidth] = useState(stored.preferences?.sidebarWidth ?? 400);
 
   // Saved homepages state
   const [savedHomepages, setSavedHomepages] = useState(stored.savedHomepages || []);
