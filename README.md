@@ -2,6 +2,8 @@
 
 A homepage builder demo for Apache Superset that allows full customization of the landing page through a drag & drop editor.
 
+![Superset Homepage Builder Demo](public/superset-homepage-builder-short-demo.gif)
+
 ![Superset Homepage Builder](public/superset-homepage-builder.png)
 
 ## Tech Stack
@@ -15,10 +17,12 @@ A homepage builder demo for Apache Superset that allows full customization of th
 ## Key Features
 
 ### 3-Region Layout
+
 - **Main Area** - 12-column grid for primary widgets
 - **Sidebar** - Collapsible side panel for secondary widgets
 
 ### Edit Mode
+
 - Toggle Edit mode to enable customization
 - Drag & drop widgets between regions
 - Individual widget configuration (gear icon)
@@ -28,6 +32,7 @@ A homepage builder demo for Apache Superset that allows full customization of th
 ### Available Widgets
 
 **Data & Analytics:**
+
 - Recents - Recently viewed items
 - Dashboards - Dashboard list
 - Charts - Chart list
@@ -38,30 +43,36 @@ A homepage builder demo for Apache Superset that allows full customization of th
 - Query Results Preview - Query results preview
 
 **Content:**
+
 - Welcome Banner - Customizable welcome banner
 - Markdown - Custom markdown content
 
 **Communication:**
+
 - Announcements - Announcements and communications
 - Changelog - Change log
 - Team Activity Feed - Team activity feed
 
 **Navigation & Productivity:**
+
 - Quick Links - Customizable quick links
 - Pinned Dashboards - Favorite dashboards
 - Search Box - Global search
 - Recent Databases - Recently accessed databases
 
 **Organization:**
+
 - Tag Cloud - Tag cloud visualization
 - Reports Schedule - Report scheduling
 - Certifications - Certified dashboards, charts, and datasets
 
 **AI-Powered:**
+
 - AI Suggestions - Personalized recommendations based on user activity
 - Natural Language Query - Ask questions about data in natural language
 
 ### Themes
+
 - Dark and Light theme support
 - Superset-style color customization
 
