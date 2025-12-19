@@ -1,4 +1,5 @@
-import HomepageBuilder from './HomepageBuilder'
+// Import from the new modular architecture
+import { HomepageBuilder } from './pages'
 
 function App() {
   return <HomepageBuilder />

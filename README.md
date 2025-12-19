@@ -103,17 +103,75 @@ npm run lint     # Run ESLint
 
 ## Project Structure
 
+The project follows a modular architecture for better maintainability and scalability:
+
 ```
-demo-app/
-├── src/
-│   ├── App.jsx              # React entry point
-│   ├── HomepageBuilder.jsx  # Main builder component
-│   ├── main.jsx             # Application bootstrap
-│   └── index.css            # Global styles
-├── public/
-│   └── superset-logo-horiz.png
-├── index.html
-├── vite.config.js
-├── tailwind.config.js
-└── package.json
+demo-app/src/
+├── config/                     # Configuration files
+│   ├── theme.js               # Dark/Light theme tokens
+│   ├── widgetTypes.jsx        # Widget definitions
+│   └── index.js               # Re-exports
+│
+├── constants/                  # Constants and mock data
+│   ├── mockData.js            # Mock data for demo
+│   ├── initialLayout.js       # Default layouts and presets
+│   └── index.js               # Re-exports
+│
+├── context/                    # React Context providers
+│   ├── ThemeContext.jsx       # Dark mode context
+│   └── index.js               # Re-exports
+│
+├── hooks/                      # Custom React hooks
+│   ├── useLocalStorage.js     # localStorage persistence
+│   ├── useDragAndDrop.js      # Drag & drop logic
+│   ├── useHomepageState.js    # Homepage state management
+│   └── index.js               # Re-exports
+│
+├── components/
+│   ├── layout/                # Layout components
+│   │   └── DropZone.jsx       # Drop zone for drag & drop
+│   │
+│   ├── widget/                # Widget system components
+│   │   ├── WidgetWrapper.jsx      # Widget container with controls
+│   │   ├── WidgetPicker.jsx       # Widget selection modal
+│   │   ├── WidgetRenderer.jsx     # Widget content dispatcher
+│   │   └── ConfigModalContent.jsx # Widget configuration forms
+│   │
+│   └── widgets/               # Widget implementations (22 widgets)
+│       ├── data/              # RecentsWidget, DashboardsWidget, etc.
+│       ├── content/           # WelcomeBannerWidget, MarkdownWidget
+│       ├── analytics/         # KpiCardsWidget, DataQualityAlertsWidget, etc.
+│       ├── communication/     # AnnouncementsWidget, ChangelogWidget, etc.
+│       ├── navigation/        # QuickLinksWidget, SearchBoxWidget, etc.
+│       ├── organization/      # TagCloudWidget, CertificationsWidget, etc.
+│       └── ai/                # AiSuggestionsWidget, NaturalLanguageQueryWidget
+│
+├── pages/                      # Page components
+│   └── HomepageBuilder.jsx    # Main page component (orchestrator)
+│
+├── App.jsx                    # React entry point
+├── main.jsx                   # Application bootstrap
+└── index.css                  # Global styles
 ```
+
+### Architecture Benefits
+
+| Aspect | Description |
+|--------|-------------|
+| **Separation of Concerns** | Each module has a single responsibility |
+| **Testability** | Components can be unit tested in isolation |
+| **Reusability** | Widgets are independent and reusable |
+| **Maintainability** | Easy to find and modify specific functionality |
+| **Scalability** | New widgets can be added without touching core logic |
+| **Code Splitting** | Enables lazy loading of widget components |
+
+### Adding a New Widget
+
+1. Create a new widget component in `src/components/widgets/[category]/`
+2. Export it from the category's `index.js`
+3. Add the widget definition to `src/config/widgetTypes.jsx`
+4. Add the component to the mapping in `src/components/widget/WidgetRenderer.jsx`
+
+## License
+
+MIT
