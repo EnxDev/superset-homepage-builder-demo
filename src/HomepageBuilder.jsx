@@ -1789,7 +1789,12 @@ export default function HomepageBuilder() {
   };
 
   const handleReset = () => {
-    setLayout(JSON.parse(JSON.stringify(INITIAL_LAYOUT)));
+    const selectedHomepage = savedHomepages.find(h => h.id === selectedHomepageId);
+    if (selectedHomepage) {
+      setLayout(JSON.parse(JSON.stringify(selectedHomepage.layout)));
+    } else {
+      setLayout(JSON.parse(JSON.stringify(INITIAL_LAYOUT)));
+    }
   };
 
   const handleClear = () => {
