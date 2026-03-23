@@ -2,6 +2,8 @@
 
 A homepage builder demo for Apache Superset that allows full customization of the landing page through a drag & drop editor.
 
+**Live Demo:** https://superset-homepage-builder-demo.vercel.app/
+
 ![Superset Homepage Builder Demo](public/superset-homepage-builder-short-demo.gif)
 
 ![Superset Homepage Builder](public/superset-homepage-builder.png)
